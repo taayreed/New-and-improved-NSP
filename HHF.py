@@ -16,7 +16,7 @@ from streamlit_calendar import calendar  # Make sure to install streamlit-calend
 # Set page configuration
 st.set_page_config(page_title="Nurse Scheduling Problem Solver", layout="wide")
 
-st.title("Nurse Scheduling Problem Solver by HH")
+st.title("NSP Solver by HH")
 
 # File uploaders
 cover_requirements_file = st.file_uploader("Upload Cover Requirements CSV", type="csv", key="cover_requirements")
@@ -235,7 +235,7 @@ if (cover_requirements_file and days_off_file and shift_off_requests_file
                         model += (x[(nurse_id, day_id, shift_id)] == 0, f"day_off_{nurse_id}_{day_id}_{shift_id}")
 
     # Solve the model
-    st.write("Solving the optimization model. This may take a few minutes...")
+    st.write("Solving the optimisation model. This may take a few moments...")
     model.solve(PULP_CBC_CMD(msg=True, timeLimit=3600, options=["feasibilityTol", "1e-12", "maxIterations", "10000000"]))
 
     # Extract the solution into a dictionary for easier checks
@@ -562,7 +562,7 @@ if (cover_requirements_file and days_off_file and shift_off_requests_file
     optimized_schedule_df = finalize_schedule_with_swaps(schedule_df, shift_on_requests_dict, nurses, days)
 
     # Display the optimized schedule
-    st.success("Optimization completed. Here is the optimized schedule after additional processing:")
+    st.success("Optimisation completed. Here is the optimised schedule after additional processing:")
     st.dataframe(optimized_schedule_df)
 
     # Optionally, provide a download button for the schedule
