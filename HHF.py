@@ -562,7 +562,7 @@ if (cover_requirements_file and days_off_file and shift_off_requests_file
     optimized_schedule_df = finalize_schedule_with_swaps(schedule_df, shift_on_requests_dict, nurses, days)
 
     # Display the optimized schedule
-    st.success("Optimisation completed. Here is the optimised schedule after additional processing:")
+    st.success("Optimisation completed. Here is the optimised schedule in csv format available for donwload:")
     st.dataframe(optimized_schedule_df)
 
     # Optionally, provide a download button for the schedule
