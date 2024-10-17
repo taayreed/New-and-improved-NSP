@@ -568,7 +568,7 @@ if (cover_requirements_file and days_off_file and shift_off_requests_file
     # Optionally, provide a download button for the schedule
     csv = optimized_schedule_df.to_csv(index=False).encode('utf-8')
     st.download_button(
-        label="Download Optimized Schedule as CSV",
+        label="Download Optimised Schedule as CSV",
         data=csv,
         file_name='optimized_nurse_schedule.csv',
         mime='text/csv',
